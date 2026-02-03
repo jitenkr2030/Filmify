@@ -1,141 +1,327 @@
-# 🚀 Welcome to Z.ai Code Scaffold
+# 🎬 Filmify - Launch Your Movie Online in Minutes
 
-A modern, production-ready web application scaffold powered by cutting-edge technologies, designed to accelerate your development with [Z.ai](https://chat.z.ai)'s AI-powered coding assistance.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Next.js](https://img.shields.io/badge/Next.js-16.1-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC)](https://tailwindcss.com/)
 
-## ✨ Technology Stack
+**Filmify** is an all-in-one digital launch platform that automatically creates **official movie websites and mobile apps**, and enables **secure in-app movie streaming** for verified content owners — all within minutes.
 
-This scaffold provides a robust foundation built with:
+Filmify empowers producers to manage their film's **entire digital lifecycle**:
+**Launch → Promote → Sell → Stream → Analyze**
 
-### 🎯 Core Framework
-- **⚡ Next.js 16** - The React framework for production with App Router
-- **📘 TypeScript 5** - Type-safe JavaScript for better developer experience
-- **🎨 Tailwind CSS 4** - Utility-first CSS framework for rapid UI development
+## ✨ Features
 
-### 🧩 UI Components & Styling
-- **🧩 shadcn/ui** - High-quality, accessible components built on Radix UI
-- **🎯 Lucide React** - Beautiful & consistent icon library
-- **🌈 Framer Motion** - Production-ready motion library for React
-- **🎨 Next Themes** - Perfect dark mode in 2 lines of code
+### 🌐 **Instant Movie Website Generator**
+- One-click professional movie website creation
+- Custom domain or Filmify subdomain support
+- Mobile-responsive layouts
+- SEO-optimized pages
+- Ultra-fast hosting & CDN support
 
-### 📋 Forms & Validation
-- **🎣 React Hook Form** - Performant forms with easy validation
-- **✅ Zod** - TypeScript-first schema validation
+### 📱 **Automatic Mobile App Creation**
+- Android App & Progressive Web App (PWA) generation
+- Auto-generated app icon & splash screen
+- App store–ready builds
+- Low-data, low-storage optimized
+- Offline content caching
 
-### 🔄 State Management & Data Fetching
-- **🐻 Zustand** - Simple, scalable state management
-- **🔄 TanStack Query** - Powerful data synchronization for React
-- **🌐 Fetch** - Promise-based HTTP request
+### 🎥 **Secure Video Streaming**
+- DRM-protected video player
+- Adaptive streaming (low internet friendly)
+- Resume watching functionality
+- Multi-language subtitle support
+- Screen recording detection
+- Content watermarking
+- Authorized user access only
 
-### 🗄️ Database & Backend
-- **🗄️ Prisma** - Next-generation TypeScript ORM
-- **🔐 NextAuth.js** - Complete open-source authentication solution
+### 💰 **Monetization Tools**
+- **Free streaming**
+- **Pay-per-view** options
+- **Subscription-based** access
+- **Limited-time** viewing (48h rentals)
+- **Coupon & access codes**
+- Secure payment processing
 
-### 🎨 Advanced UI Features
-- **📊 TanStack Table** - Headless UI for building tables and datagrids
-- **🖱️ DND Kit** - Modern drag and drop toolkit for React
-- **📊 Recharts** - Redefined chart library built with React and D3
-- **🖼️ Sharp** - High performance image processing
+### 🎟️ **Ticket Booking Integration**
+- BookMyShow / Paytm / Insider integration ready
+- Region-based showtime redirection
+- One-click ticket booking buttons
+- Affiliate & commission support
 
-### 🌍 Internationalization & Utilities
-- **🌍 Next Intl** - Internationalization library for Next.js
-- **📅 Date-fns** - Modern JavaScript date utility library
-- **🪝 ReactUse** - Collection of essential React hooks for modern development
+### 📊 **Producer Dashboard**
+- Complete content management system
+- Enable/disable features instantly
+- Streaming controls & analytics
+- Audience insights & reports
+- Revenue tracking
+- Real-time statistics
 
-## 🎯 Why This Scaffold?
+### 🔐 **Security & Verification**
+- Producer & studio verification system
+- Content ownership declaration
+- Official movie verification badges
+- Secure hosting & SSL
+- Anti-piracy safeguards
 
-- **🏎️ Fast Development** - Pre-configured tooling and best practices
-- **🎨 Beautiful UI** - Complete shadcn/ui component library with advanced interactions
-- **🔒 Type Safety** - Full TypeScript configuration with Zod validation
-- **📱 Responsive** - Mobile-first design principles with smooth animations
-- **🗄️ Database Ready** - Prisma ORM configured for rapid backend development
-- **🔐 Auth Included** - NextAuth.js for secure authentication flows
-- **📊 Data Visualization** - Charts, tables, and drag-and-drop functionality
-- **🌍 i18n Ready** - Multi-language support with Next Intl
-- **🚀 Production Ready** - Optimized build and deployment settings
-- **🤖 AI-Friendly** - Structured codebase perfect for AI assistance
+### ⭐ **Review & Rating Aggregation**
+- IMDb ratings integration
+- Google reviews aggregation
+- Critic review highlights
+- Audience feedback sections
 
 ## 🚀 Quick Start
 
+### Prerequisites
+
+- Node.js 18+ 
+- Bun (recommended) or npm/yarn
+- Git
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/jitenkr2030/Filmify.git
+   cd Filmify
+   ```
+
+2. **Install dependencies**
+   ```bash
+   bun install
+   # or
+   npm install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Configure your `.env` file:
+   ```env
+   DATABASE_URL="file:./db/custom.db"
+   NEXTAUTH_SECRET="your-secret-key"
+   NEXTAUTH_URL="http://localhost:3000"
+   ```
+
+4. **Set up the database**
+   ```bash
+   bun run db:push
+   bun run db:generate
+   ```
+
+5. **Start the development server**
+   ```bash
+   bun run dev
+   ```
+
+6. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 🏗️ Architecture
+
+### Tech Stack
+
+- **Framework**: Next.js 16 with App Router
+- **Language**: TypeScript 5
+- **Styling**: Tailwind CSS 4 + shadcn/ui
+- **Database**: Prisma ORM with SQLite
+- **Authentication**: NextAuth.js v4
+- **State Management**: Zustand + TanStack Query
+- **PWA**: Service Worker + Web App Manifest
+
+### Project Structure
+
+```
+Filmify/
+├── src/
+│   ├── app/                    # Next.js App Router pages
+│   │   ├── api/               # API routes
+│   │   ├── dashboard/         # Producer dashboard
+│   │   ├── movies/           # Movie listing
+│   │   └── movie/[slug]/     # Dynamic movie pages
+│   ├── components/            # Reusable components
+│   │   ├── ui/               # shadcn/ui components
+│   │   ├── video-player/     # Secure video player
+│   │   ├── movie-templates/  # Website templates
+│   │   └── purchase/         # Purchase flow
+│   └── lib/                  # Utilities and configurations
+├── prisma/                   # Database schema
+├── public/                   # Static assets
+└── mini-services/           # Microservices
+```
+
+## 📱 PWA Features
+
+Filmify is built as a Progressive Web App with:
+
+- **Offline Support**: Cache movie information for offline viewing
+- **Installable**: Add to home screen on mobile devices
+- **Push Notifications**: Trailer releases, streaming availability
+- **Responsive**: Works seamlessly on all devices
+
+## 🔒 Security Features
+
+- **DRM Protection**: Secure video streaming with encryption
+- **Screen Recording Detection**: Prevents unauthorized recording
+- **Access Control**: User authentication and authorization
+- **Content Verification**: Producer verification system
+- **Secure Payments**: Encrypted transaction processing
+
+## 💡 Usage Examples
+
+### Creating a New Movie
+
+```typescript
+const movieData = {
+  title: "My Awesome Film",
+  synopsis: "A thrilling adventure...",
+  genre: "Action",
+  language: "English",
+  duration: 120,
+  streamingType: "PAY_PER_VIEW",
+  price: 9.99,
+  posterUrl: "https://example.com/poster.jpg",
+  trailerUrl: "https://example.com/trailer.mp4"
+};
+
+// Create movie via API
+const response = await fetch('/api/movies', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(movieData)
+});
+```
+
+### Checking User Access
+
+```typescript
+// Check if user can watch a movie
+const accessResponse = await fetch(`/api/access?movieId=${movieId}&userId=${userId}`);
+const { hasAccess, reason } = await accessResponse.json();
+
+if (hasAccess) {
+  // Show video player
+} else {
+  // Show purchase modal
+}
+```
+
+## 🔧 Configuration
+
+### Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `DATABASE_URL` | Database connection string | `file:./db/custom.db` |
+| `NEXTAUTH_SECRET` | Authentication secret | Required |
+| `NEXTAUTH_URL` | Base URL for auth | `http://localhost:3000` |
+| `STRIPE_SECRET_KEY` | Stripe payment secret | Optional |
+| `STRIPE_WEBHOOK_SECRET` | Stripe webhook secret | Optional |
+
+### Database Schema
+
+The platform uses a comprehensive schema with models for:
+- **Users** (Producers, Admins, Viewers)
+- **Movies** (Content, metadata, streaming settings)
+- **Purchases** (Transactions, access control)
+- **Reviews** (Ratings, feedback)
+- **Analytics** (Views, engagement metrics)
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+1. Connect your GitHub repository to Vercel
+2. Configure environment variables
+3. Deploy automatically on push to main branch
+
+### Docker
+
 ```bash
-# Install dependencies
-bun install
+# Build the image
+docker build -t filmify .
 
-# Start development server
-bun run dev
+# Run the container
+docker run -p 3000:3000 filmify
+```
 
+### Traditional Hosting
+
+```bash
 # Build for production
 bun run build
 
 # Start production server
-bun start
+bun run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see your application running.
+## 🤝 Contributing
 
-## 🤖 Powered by Z.ai
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
-This scaffold is optimized for use with [Z.ai](https://chat.z.ai) - your AI assistant for:
+### Development Workflow
 
-- **💻 Code Generation** - Generate components, pages, and features instantly
-- **🎨 UI Development** - Create beautiful interfaces with AI assistance  
-- **🔧 Bug Fixing** - Identify and resolve issues with intelligent suggestions
-- **📝 Documentation** - Auto-generate comprehensive documentation
-- **🚀 Optimization** - Performance improvements and best practices
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
 
-Ready to build something amazing? Start chatting with Z.ai at [chat.z.ai](https://chat.z.ai) and experience the future of AI-powered development!
+## 📝 API Documentation
 
-## 📁 Project Structure
+### Movies API
 
+- `GET /api/movies` - List movies with filtering
+- `POST /api/movies` - Create new movie
+- `GET /api/movies/[slug]` - Get movie details
+- `PUT /api/movies/[slug]` - Update movie
+- `DELETE /api/movies/[slug]` - Delete movie
+
+### Access API
+
+- `GET /api/access` - Check user access to movie
+
+### Purchases API
+
+- `GET /api/purchases` - List user purchases
+- `POST /api/purchases` - Create new purchase
+
+## 🧪 Testing
+
+```bash
+# Run linting
+bun run lint
+
+# Run type checking
+bun run type-check
+
+# Run tests (when implemented)
+bun run test
 ```
-src/
-├── app/                 # Next.js App Router pages
-├── components/          # Reusable React components
-│   └── ui/             # shadcn/ui components
-├── hooks/              # Custom React hooks
-└── lib/                # Utility functions and configurations
-```
 
-## 🎨 Available Features & Components
+## 📄 License
 
-This scaffold includes a comprehensive set of modern web development tools:
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### 🧩 UI Components (shadcn/ui)
-- **Layout**: Card, Separator, Aspect Ratio, Resizable Panels
-- **Forms**: Input, Textarea, Select, Checkbox, Radio Group, Switch
-- **Feedback**: Alert, Toast (Sonner), Progress, Skeleton
-- **Navigation**: Breadcrumb, Menubar, Navigation Menu, Pagination
-- **Overlay**: Dialog, Sheet, Popover, Tooltip, Hover Card
-- **Data Display**: Badge, Avatar, Calendar
+## 🆘 Support
 
-### 📊 Advanced Data Features
-- **Tables**: Powerful data tables with sorting, filtering, pagination (TanStack Table)
-- **Charts**: Beautiful visualizations with Recharts
-- **Forms**: Type-safe forms with React Hook Form + Zod validation
+- 📧 Email: support@filmify.app
+- 🐛 Issues: [GitHub Issues](https://github.com/jitenkr2030/Filmify/issues)
+- 📖 Documentation: [Filmify Docs](https://docs.filmify.app)
 
-### 🎨 Interactive Features
-- **Animations**: Smooth micro-interactions with Framer Motion
-- **Drag & Drop**: Modern drag-and-drop functionality with DND Kit
-- **Theme Switching**: Built-in dark/light mode support
+## 🙏 Acknowledgments
 
-### 🔐 Backend Integration
-- **Authentication**: Ready-to-use auth flows with NextAuth.js
-- **Database**: Type-safe database operations with Prisma
-- **API Client**: HTTP requests with Fetch + TanStack Query
-- **State Management**: Simple and scalable with Zustand
-
-### 🌍 Production Features
-- **Internationalization**: Multi-language support with Next Intl
-- **Image Optimization**: Automatic image processing with Sharp
-- **Type Safety**: End-to-end TypeScript with Zod validation
-- **Essential Hooks**: 100+ useful React hooks with ReactUse for common patterns
-
-## 🤝 Get Started with Z.ai
-
-1. **Clone this scaffold** to jumpstart your project
-2. **Visit [chat.z.ai](https://chat.z.ai)** to access your AI coding assistant
-3. **Start building** with intelligent code generation and assistance
-4. **Deploy with confidence** using the production-ready setup
+- [Next.js](https://nextjs.org/) - The React framework
+- [Prisma](https://www.prisma.io/) - Modern database toolkit
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [shadcn/ui](https://ui.shadcn.com/) - Beautiful UI components
+- [Lucide](https://lucide.dev/) - Icon library
 
 ---
 
-Built with ❤️ for the developer community. Supercharged by [Z.ai](https://chat.z.ai) 🚀
+<div align="center">
+  <p>Made with ❤️ by the Filmify Team</p>
+  <p>🎬 Launch Your Movie Online in Minutes</p>
+</div>
