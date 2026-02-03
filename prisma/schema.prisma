@@ -1,0 +1,238 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String?
+  role         UserRole @default(USER)
+  verified     Boolean  @default(false)
+  verificationToken String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Producer specific fields
+  studio       String?
+  website      String?
+  bio          String?
+
+  // Relations
+  movies       Movie[]
+  purchases    Purchase[]
+  reviews      Review[]
+  notifications Notification[]
+
+  @@map("users")
+}
+
+model Movie {
+  id              String         @id @default(cuid())
+  title           String
+  slug            String         @unique
+  synopsis        String
+  story           String?
+  genre           String
+  language        String
+  duration        Int            // in minutes
+  certification   String?
+  releaseDate     DateTime?
+  status          MovieStatus    @default(DRAFT)
+  featured        Boolean        @default(false)
+  customDomain    String?
+  filmifySubdomain String?       @unique
+  
+  // Media
+  posterUrl       String?
+  trailerUrl      String?
+  fullMovieUrl    String?
+  
+  // Streaming settings
+  streamingEnabled Boolean       @default(false)
+  streamingType   StreamingType  @default(FREE)
+  price           Float?         // for pay-per-view
+  
+  // OTT and ticketing
+  ottPlatforms    String?        // JSON array of platforms
+  ticketingUrls   String?        // JSON object of region -> URL
+  
+  // Metadata
+  directorName    String?
+  producerName    String?
+  cast            String?        // JSON array
+  crew            String?        // JSON array
+  pressKit        String?        // URL to press kit
+  
+  // Analytics
+  views           Int            @default(0)
+  purchases       Int            @default(0)
+  
+  // Settings
+  seoTitle        String?
+  seoDescription  String?
+  customTheme     String?        // JSON theme config
+  
+  producerId      String
+  producer        User           @relation(fields: [producerId], references: [id])
+  
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  // Relations
+  reviews         Review[]
+  userPurchases   Purchase[]
+  mediaAssets     MediaAsset[]
+  notifications   Notification[]
+
+  @@map("movies")
+}
+
+model MediaAsset {
+  id          String       @id @default(cuid())
+  type        MediaType
+  url         String
+  title       String?
+  description String?
+  sortOrder   Int          @default(0)
+  
+  movieId     String
+  movie       Movie        @relation(fields: [movieId], references: [id])
+  
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@map("media_assets")
+}
+
+model Review {
+  id          String     @id @default(cuid())
+  rating      Int        // 1-10
+  title       String?
+  content     String
+  source      String?    // e.g., "IMDb", "Google Reviews"
+  verified    Boolean    @default(false)
+  featured    Boolean    @default(false)
+  
+  movieId     String
+  movie       Movie      @relation(fields: [movieId], references: [id])
+  
+  userId      String?
+  user        User?      @relation(fields: [userId], references: [id])
+  
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@map("reviews")
+}
+
+model Purchase {
+  id            String       @id @default(cuid())
+  amount        Float
+  currency      String       @default("USD")
+  status        PurchaseStatus @default(PENDING)
+  paymentMethod String?
+  transactionId String?
+  
+  movieId       String
+  movie         Movie        @relation(fields: [movieId], references: [id])
+  
+  userId        String
+  user          User         @relation(fields: [userId], references: [id])
+  
+  expiresAt     DateTime?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  @@map("purchases")
+}
+
+model Notification {
+  id        String           @id @default(cuid())
+  title     String
+  message   String
+  type      NotificationType
+  read      Boolean          @default(false)
+  
+  userId    String
+  user      User             @relation(fields: [userId], references: [id])
+  
+  movieId   String?
+  movie     Movie?           @relation(fields: [movieId], references: [id])
+  
+  createdAt DateTime         @default(now())
+
+  @@map("notifications")
+}
+
+model Analytics {
+  id            String   @id @default(cuid())
+  eventType     String   // e.g., "view", "purchase", "trailer_play"
+  movieId       String
+  userId        String?
+  sessionId     String?
+  ipAddress     String?
+  userAgent     String?
+  referrer      String?
+  
+  metadata      String?  // JSON for additional data
+  
+  createdAt     DateTime @default(now())
+
+  @@map("analytics")
+}
+
+enum UserRole {
+  USER
+  PRODUCER
+  ADMIN
+}
+
+enum MovieStatus {
+  DRAFT
+  PUBLISHED
+  RELEASED
+  ARCHIVED
+}
+
+enum StreamingType {
+  FREE
+  PAY_PER_VIEW
+  SUBSCRIPTION
+  LIMITED_TIME
+}
+
+enum MediaType {
+  POSTER
+  TRAILER
+  SONG
+  GALLERY_IMAGE
+  PRESS_KIT
+  BEHIND_THE_SCENES
+}
+
+enum PurchaseStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+enum NotificationType {
+  TRAILER_RELEASE
+  MOVIE_RELEASE
+  STREAMING_AVAILABLE
+  OTT_RELEASE
+  ANNOUNCEMENT
+  SYSTEM
+}
