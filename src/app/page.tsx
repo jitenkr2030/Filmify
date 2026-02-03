@@ -5,8 +5,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Play, Film, Globe, Smartphone, Shield, DollarSign, Star, Users, Zap } from 'lucide-react'
 import Link from 'next/link'
+import { useI18n } from '@/lib/i18n'
+import LanguageSelector from '@/components/ui/language-selector'
+import NotificationCenter from '@/components/notifications/NotificationCenter'
 
 export default function Home() {
+  const { t } = useI18n()
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Navigation */}
@@ -20,23 +25,25 @@ export default function Home() {
             <div className="flex items-center space-x-4">
               <Link href="/movies">
                 <Button variant="ghost" className="text-white hover:text-purple-400">
-                  Browse Movies
+                  {t('navigation.browse')}
                 </Button>
               </Link>
               <Button variant="ghost" className="text-white hover:text-purple-400">
-                Features
+                {t('navigation.features')}
               </Button>
               <Button variant="ghost" className="text-white hover:text-purple-400">
-                Pricing
+                {t('navigation.pricing')}
               </Button>
               <Button variant="ghost" className="text-white hover:text-purple-400">
-                About
+                {t('navigation.about')}
               </Button>
               <Link href="/dashboard">
                 <Button className="bg-purple-600 hover:bg-purple-700 text-white">
-                  Producer Dashboard
+                  {t('navigation.dashboard')}
                 </Button>
               </Link>
+              <LanguageSelector variant="compact" />
+              <NotificationCenter />
             </div>
           </div>
         </div>
